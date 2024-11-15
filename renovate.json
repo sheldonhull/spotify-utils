@@ -1,6 +1,55 @@
 {
   "$schema": "https://docs.renovatebot.com/renovate-schema.json",
   "extends": [
-    "config:recommended"
-  ]
+    ":semanticCommits",
+    ":semanticCommitTypeAll(build)",
+    ":renovatePrefix"
+  ],
+  "dependencyDashboardApproval": true,
+  "dependencyDashboard": true,
+  "dependencyDashboardAutoclose": false,
+  "dependencyDashboardLabels": [
+    "dependencies"
+  ],
+  "prCreation": "immediate",
+  "major": {
+    "automerge": false,
+    "dependencyDashboardApproval": true
+  },
+  "groupName": "all dependencies",
+  "groupSlug": "all",
+  "lockFileMaintenance": {
+    "enabled": false
+  },
+  "packageRules": [
+    {
+      "groupName": "all dependencies",
+      "groupSlug": "all",
+      "matchPackageNames": [
+        "*"
+      ],
+      "commitMessageAction": "📦 ",
+      "semanticCommitType": "build"
+    }
+  ],
+  "separateMajorMinor": false,
+  "osvVulnerabilityAlerts": true,
+  "vulnerabilityAlerts": {
+    "groupName": "🛡️ vulnerability [{{{vulnerabilitySeverity}}}]",
+    "commitMessageSuffix": "",
+    "enabled": true,
+    "semanticCommitType": "security",
+    "prCreation": "immediate",
+    "labels": [
+      "security",
+      "ignore-stale",
+      "dependencies"
+    ],
+    "schedule": [
+      "at any time"
+    ],
+    "recreateWhen": "always",
+    "branchTopic": "{{{datasource}}}-vulnerability",
+    "commitMessageAction": "🛡️ {{updateType}}"
+  }
 }
