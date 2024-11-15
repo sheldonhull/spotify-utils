@@ -15,3 +15,11 @@ Add callback: `http://127.0.0.1:4001/callback`.
 
 - load `.env` with direnv or desired tool.
 - `go run main.go`
+
+## Why
+
+I wanted to reset my library and while I found some actions to easily clear playlists, I didn't find anything for removing all the albums.
+
+I also found this interesting as it works with Oauth waiting for callback.
+
+If anything is ugly in this, I blame GPT. 😂
